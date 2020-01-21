@@ -1,0 +1,57 @@
+{
+  "type": "box",
+  "layout": "horizontal",
+  "contents": [
+    {
+      "type": "box",
+      "layout": "baseline",
+      "contents": [
+        {
+          "type": "filler"
+        }
+      ],
+      "flex": 1
+    },
+    {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "filler"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "filler"
+                }
+              ],
+              "width": "2px",
+              "backgroundColor": "#B7B7B7"
+            },
+            {
+              "type": "filler"
+            }
+          ],
+          "flex": 1
+        }
+      ],
+      "width": "12px"
+    },
+    {
+      "type": "text",
+      "text": "LINE NAME",
+      "size": "xs",
+      "flex": 4,
+      "gravity": "center",
+      "color": "#B7B7B7"
+    }
+  ],
+  "spacing": "lg",
+  "height": "64px"
+}

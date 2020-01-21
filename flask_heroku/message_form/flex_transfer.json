@@ -1,0 +1,54 @@
+{
+  "type": "box",
+  "layout": "horizontal",
+  "contents": [
+    {
+      "type": "box",
+      "layout": "baseline",
+      "contents": [
+        {
+          "type": "filler"
+        }
+      ],
+      "flex": 1
+    },
+    {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "filler"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "filler"
+            }
+          ],
+          "cornerRadius": "30px",
+          "width": "12px",
+          "height": "12px",
+          "borderWidth": "2px",
+          "borderColor": "#B7B7B7"
+        },
+        {
+          "type": "filler"
+        }
+      ],
+      "flex": 0
+    },
+    {
+      "type": "text",
+      "text": "TRANSFER_LOCATION",
+      "gravity": "center",
+      "flex": 4,
+      "size": "sm",
+      "color": "#B7B7B7",
+      "weight": "bold"
+    }
+  ],
+  "spacing": "lg",
+  "cornerRadius": "30px"
+}

@@ -1,0 +1,69 @@
+{
+    "type": "bubble",
+    "size": "mega",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "FROM",
+              "color": "#eb7023",
+              "size": "sm",
+              "style": "italic"
+            },
+            {
+              "type": "text",
+              "text": "START_LOCATION",
+              "color": "#eb7023",
+              "size": "xl",
+              "flex": 4,
+              "weight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "TO",
+              "color": "#eb7023",
+              "size": "sm",
+              "style": "italic"
+            },
+            {
+              "type": "text",
+              "text": "END_LOCATION",
+              "color": "#eb7023",
+              "size": "xl",
+              "flex": 4,
+              "weight": "bold"
+            }
+          ]
+        }
+      ],
+      "paddingAll": "20px",
+      "backgroundColor": "#fffd9c",
+      "spacing": "md",
+      "height": "154px",
+      "paddingTop": "22px"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "소요시간: ",
+          "color": "#eb7023",
+          "size": "xs"
+        }
+      ]
+    }
+  }
