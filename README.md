@@ -78,21 +78,25 @@ flask_EC2/main.py
 flask_EC2/replace_correct_word.py
 
 - def find_most_similiar_in_group(word, search_words), def correct_subway_word(word)
+
 출발 역 또는 도착 역이라고 간주되는 명사 (word) 와 DB에 존재하는 역 이름들과 비교하여 검사하고, 다르다면 유사한 역 이름들을 반환한다. 인자로 받은 명사의 첫 단어가 동일한 역 이름들 중에 거리를 개산하여 가장 거리가 짧은 순서대로 최대 3개를 반환한다. 만약 첫 단어부터 동일한 역 이름이 없을 경우, 초성과 똑같은 모든 역 이름 중에서 가장 거리가 가까운 역 이름을 확인하도록 한다. Levenshtein distance를 이용하여 각 단어들을 초성, 중성, 종성으로 구분하여 유사한 정도를 계산하도록 한다.
 
 - def compose(chosung, jungsung, jongsung), def _is_character_Korean(char), def decompose(char), def _to_base(c), def get_jamo_cost(c1, c2)
+
 입력받은 한글을 숫자 값으로 변환 및 계산하여 초성, 중성, 종성으로 나눈다. 다음 Levenshtein distance를 이용하여 각 초성, 중성, 종성별로 철자가 다르다면 1/3씩 거리를 증가시키고, 같은 위치에 있는 글자가 아예 다르다면 1씩 거리를 증가시킨다. 비슷한 방식으로 단어 자릿수가 많거나 작을수록 1씩 거리가 증가하는 가중치로 계산하여, 유사한 단어일수록 거리가 짧아진다.
 
 ### 5. Odsay API 서비스 연동
 flask_EC2/functions.py
 
 - def get_odsay_API(lang=0, CID, SID, EID, Sopt)
+
 출발 역과 도착 역이 파악되면 URI API 형식으로 Odsay에서 제공하는 서비스를 이용하여 지하철 내 경로를 검색한다. 출발 및 도착 역을 DB에 조회하여 Odsay에서 호환되는 지하철 역 코드를 인자로 전달받아, 이를 API 호출 형식으로 지하철 내 경로 검색 결과를 반환한다. 한국어로 결과 언어를 설정하고, 수도권 지하철 내 검색으로만 기본적으로 설정한다. 만약 "최단 경로" 방식으로 사용자가 검색한다면 Sopt 인자를 1, "최소 환승" 방식이라면 Sopt 인자를 2로 설정한다. SID와 EID는 각각 출발역, 도착역이다. API에 대한 인자 설정 완료 후 UTF-8로 encoding하여 GET 방식으로 호출하고, Odsay Server에서 얻은 json 파일을 반환한다.
 
 ### 6. Line Server와 통신
 flask_heroku/main.py
 
 - def handle_stage(event)
+
 Line Server와 통신하여 사용자와 EC2와의 연결을 이어 주는 API 서버이다. Line Server와 EC2에서 처리하는 모든 stage 또는 특정 키워드에 대한 반응을 처리한다. Line Developer에서 callback 함수를 설정하여 address와 key를 설정하도록 하여 API 서버를 Heroku에 deploy하고, 이로 사용자가 메시지를 보내는 event 발생 시에 항상 서버에 전송한다. json 형식으로 event에 대한 내용이 담겨 있으므로 필요한 데이터만 추출하여 EC2에 POST 방식으로 데이터를 전송하고, 그로부터 얻은 결과에 따라 사용자에게 버튼 형식이나 카드 형식 등 line-bot-sdk 라이브러리에서 제공하는 UI방식으로 적절히 결과로 보낸다.
 line_bot_api의 라이브러리를 활용하여 각 함수의 폼에 맞게 결과물을 출력한다. 사용자의 편의를 위하여 오타가 발생했던 단어가 있다면 후보 단어들을 선택할 수 있도록 버튼 형식으로 출력하고, 경로 내의 개찰구 안 화장실에 대한 세부 정보 및 노선 이미지 시각화를 하거나, Flex Message라는 json 형식을 커스텀으로 제작하여 경로 검색 결과를 시각화하여 출력한다.
 
