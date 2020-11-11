@@ -1,4 +1,7 @@
 # Chatbot for subway system
+Navigation system for subway system (Line 1-9, AREX, Kyeongui-Jungang Line, Bundang Line, Ui-Shinseol Line, etc (Seoul, Incheon, Gyeonggi Area) and information about toilets inside the ticket barrier.
+Used Natural Language Processing (NLP) for Korean by MeCab, ODSay API for metro information, and used --- algorithm for shortest path and shortest time route.
+First deployed on heroku for testing, then used AWS EC2.
 
 https://youtu.be/t0etGpdZcx0
 
@@ -6,13 +9,6 @@ https://youtu.be/t0etGpdZcx0
 - Windows, Linux for development settings
 - git, putty, cyberduck for management and server communiation
 - Python 3.7.5 Django (backend) + ODsay API + LINE (frontend)
-
-Navigation system for subway system (Line 1-9, AREX, Kyeongui-Jungang Line, Bundang Line, Ui-Shinseol Line, etc (Seoul, Incheon, Gyeonggi Area) and information about toilets inside the ticket barrier.
-
-Used Natural Language Processing (NLP) for Korean by MeCab, ODSay API for metro information, and used --- algorithm for shortest path and shortest time route.
-
-First deployed on heroku for testing, then used AWS EC2.
-
 
 ### 개발 배경
 생활에 필요한 정보를 사용자에게 전달할 때, 단순 검색 결과 화면보다 챗봇을 사용하면 더 좋을 것 같은 주제를 생각하다가 공공 시설 중에서 지하철 개찰구 안에 있는 화장실 여부를 알려 주는 챗봇을 개발하는 것으로 구체화되었다. 음성 비서나 단순 검색으로는 명쾌한 결과를 찾기 어렵고 사람들이 필요로 하지만 별도로 개발된 서비스가 없으며, 해당 서비스를 제공하는 지하철 길찾기 애플리케이션 또한 별도로 설치해야 하며 사용이 불편하다. 친구 추가만을 통해 서비스를 제공할 수 있으므로 접근 용이성이 큰 띵톡은 많은 사용자에게 편의를 제공할 수 있을 것이다.
