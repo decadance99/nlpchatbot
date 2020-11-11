@@ -9,7 +9,7 @@ https://youtu.be/t0etGpdZcx0
 - Windows, Linux for development settings
 - git, putty, cyberduck for management and server communiation
 - AWS EC2 for server, AWS RDS for database, AWS S3 for image datas
-- Python 3.7.5 Django (backend) + ODsay API + LINE (frontend)
+- Python 3.7.5 Flask (backend) + ODsay API + LINE (frontend)
 
 ### 개발 배경
 생활에 필요한 정보를 사용자에게 전달할 때, 단순 검색 결과 화면보다 챗봇을 사용하면 더 좋을 것 같은 주제를 생각하다가 공공 시설 중에서 지하철 개찰구 안에 있는 화장실 여부를 알려 주는 챗봇을 개발하는 것으로 구체화되었다. 음성 비서나 단순 검색으로는 명쾌한 결과를 찾기 어렵고 사람들이 필요로 하지만 별도로 개발된 서비스가 없으며, 해당 서비스를 제공하는 지하철 길찾기 애플리케이션 또한 별도로 설치해야 하며 사용이 불편하다. 친구 추가만을 통해 서비스를 제공할 수 있으므로 접근 용이성이 큰 띵톡은 많은 사용자에게 편의를 제공할 수 있을 것이다.
@@ -58,6 +58,10 @@ https://youtu.be/t0etGpdZcx0
 4. 최소 환승: 사용자 경로 입력 -> 정보 확인 -> 정보 제공
 5. 종료
 
+## Output
+### 1. 특정 키워드 확인
+- flask_EC2/main.py
+특정 키워드가 사용자가 입력한 텍스트에 있을 경우, 해당하는 stage에 진입하도록 처리한다. 모든 사용자가 입력하는 텍스트가 입력된 이벤트가 발생하였을 시, Konlpy의 Mecab Tag 형태소 분석기를 이용하여 텍스트 전체를 분석한 결과를 토대로 명사 중에 특정 키워드가 있는지 확인한다. 이를 토대로 stage 진입 또는 토기화하도록 한다. 이후에 특정 키워드가 없는 텍스트일 경우에는 기존의 사용자가 거친 stage대로 처리하도록 시나리오를 전개한다.
 
 
 
