@@ -1,7 +1,7 @@
 # Chatbot for subway system
 Navigation system for subway system (Line 1-9, AREX, Kyeongui-Jungang Line, Bundang Line, Ui-Shinseol Line, etc (Seoul, Incheon, Gyeonggi Area) and information about toilets inside the ticket barrier.
-Used Natural Language Processing (NLP) for Korean by MeCab, ODSay API for metro information, and used --- algorithm for shortest path and shortest time route.
-First deployed on heroku for testing, then used AWS EC2.
+Used Natural Language Processing (NLP) for Korean by MeCab, ODSay API for metro information, and used Levenshtein distance for calculating similiarities among station names in case of user typo.
+deployed on heroku for testing, then connected to AWS EC2.
 
 https://youtu.be/t0etGpdZcx0
 
