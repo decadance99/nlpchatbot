@@ -8,6 +8,7 @@ https://youtu.be/t0etGpdZcx0
 ### SW
 - Windows, Linux for development settings
 - git, putty, cyberduck for management and server communiation
+- AWS EC2 for server, AWS RDS for database, AWS S3 for image datas
 - Python 3.7.5 Django (backend) + ODsay API + LINE (frontend)
 
 ### 개발 배경
@@ -25,13 +26,30 @@ https://youtu.be/t0etGpdZcx0
 2. 사용자가 원하는 정보 제공
 (활용 기술: 데이터 수집 라이브러리를 이용한 파이썬 크롤링으로 정보 수집)
 3. 사용자가 원하는 정보를 제공하기 위한 처리
-(활용 기술: Python Flask로 서버 개발, AWS EC2와 MySQL로 데이터베이스 구축)
+(활용 기술: Python Flask로 서버 개발, AWS RDS와 MySQL로 데이터베이스 구축)
 
 
-##
+## Repository
+### /DB
+- db_creaty.py : 데이터베이스 생성
+- get_station_code_at_odsay.py : 오디세이가 사용하는 역 코드 받아 오기
+- info_intoilet.py : 노선별 개찰구 내 화장실이 있는 역 이름 사전
+- subwayinfo.csv : 지하철 역 정보
+- subway_name.json : 수도권 지하철의 모든 역 딕셔너리
 
+### /flask_EC2
+- db_connection.py : RDS와 연결하는 지점 설정
+- functions.py : EC2 서버에서 사용하는 함수
+- main.py : EC2 서버 메인 함수 (backend)
+- replace_correct_word.py : 사용자의 오타 입력에 대해 처리하는 함수를 사용한 처리 작업 수행
+- typing_error_processing.py : 사용자의 오타 입력에 대해 처리하는 함수
+- stage_control.py : 단계 제어 함수
 
-
+### /flask_heroku
+- Procfile : 배포 방식
+- main.py : heroku 서버 메인 함수 (frontend)
+- requirements.txt : 환경 명시
+- runtime.txt : 버전 명시
 
 ## Scenarios
 1. 경로 내: 사용자 경로 입력 -> 경로 확인 -> 정보 제공
